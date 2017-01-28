@@ -33,7 +33,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 export class EventThumbnailComponent{
     @Input() event: any
     
-    getStartTimeStyle(){
+    someProperty: any = "some value"
+
+    getStartTimeStyle(): any {
         if (this.event && this.event.time == '8:00 am')
             return { color: '#003300', 'font-weight': 'bold' }
         return {}
@@ -44,4 +46,9 @@ export class EventThumbnailComponent{
         console.log('clicked!')
         this.eventClick.emit(this.event.name)
     }
+
+    logFoo(){
+        console.log('foo')
+    }
+    
 }

@@ -10,6 +10,8 @@ export class EventsListComponent{
     handleEventClick(data){
         console.log('received:', data)
     }
+
+    
     events = [
         {
             id: 1,

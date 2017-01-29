@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core'
+import { Injectable, Observable } from '@angular/core'
 import { Subject } from 'rxjs/RX'
 import { IEvent } from './event.model'
 
 @Injectable()
 export class EventService {
-    getEvents(): Subject<IEvent[]>{
+    getEvents(): Observable<IEvent[]>{
         let subject = new Subject<IEvent[]>()
         setTimeout(() => {subject.next(EVENTS); subject.complete();}, 100)
-        return subject
+        return subject  // for lazy loading
     }
-
+    
     getEvent(id: number): IEvent{
         return EVENTS.find(event => event.id === id)
     }

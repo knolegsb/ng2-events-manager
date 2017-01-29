@@ -15,13 +15,14 @@ export class EventsListComponent implements OnInit {
     }
 
     events: any
-    constructor(private eventService: EventService, private toastr: ToastrService){
+    constructor(private eventService: EventService, private toastr: ToastrService, private route: ActivatedRoute){
         //this.events = this.eventService.getEvents()
     }
 
     ngOnInit(){
         //this.events = this.eventService.getEvents()
-        this.eventService.getEvents().subscribe(events => { this.events = events })
+        //this.eventService.getEvents().subscribe(events => { this.events = events }) ===> this is eliminated because resolver is doing the same job.
+        this.events = this.route.snapshot.data['events']
     }
 
     handleThumbnailClick(eventName){
